@@ -9,15 +9,20 @@ this.addEventListener("install", (event) => {
         "/static/js/main.chunk.js",
         "/index.html",
         "/",
+        "/users",
       ]);
     })
   );
 });
 
 this.addEventListener("fetch", (event) => {
-  event.respondWith(
-    caches.match(event.request).then((result) => {
-      if (result) return result;
-    })
-  );
+  if (!navigator.onLine) {
+    event.respondWith(
+      caches.match(event.request).then((result) => {
+        if (result) return result;
+        let requestUrl = event.request.clone();
+        return fetch(requestUrl);
+      })
+    );
+  }
 });
