@@ -17,12 +17,6 @@ function App() {
             <Nav.Link as={Link} to="/">Home</Nav.Link>
             <Nav.Link as={Link} to="/about">About</Nav.Link>
             <Nav.Link as={Link} to="/users">Users</Nav.Link>
-            {/* <Nav.Link>
-              <Link to="/about">About</Link>
-            </Nav.Link>
-            <Nav.Link >
-              <Link to="/users">Users</Link>
-            </Nav.Link> */}
           </Nav>
         </Navbar>
         <Switch>
